@@ -41,7 +41,6 @@ class PersistentList(object):
         if len(self.db['idlist']) == self.maxitems:
             del self.db['idlist'][0]
         self.db['idlist'].append(id)
-        print(self.db['idlist'])
 
     def close(self):
         self.db.close()
