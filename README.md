@@ -17,8 +17,6 @@ first object is removed from the list.
         # tar zxvf persistentlist-0.3.tar.gz
         # cd persistentlist
         # python3.4 setup.py install
-        # # or
-        # python3.4 setup.py install --install-scripts=/usr/bin
 
 ### How to use persistentlist
 
