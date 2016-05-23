@@ -1,4 +1,4 @@
-### A simple persistent list carrying n objects, the n+1 objects removing the 1st object in the list
+# Persistentlist
 
 Persistentlist is a simple persistent list carrying n objects, the last objects being appended
 at the end of the list.
