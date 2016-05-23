@@ -14,7 +14,7 @@ first object is removed from the list.
 
 * Install persistentlist from sources
 
-        # tar zxvf persistentlist-0.1.tar.gz
+        # tar zxvf persistentlist-0.3.tar.gz
         # cd persistentlist
         # python3.4 setup.py install
         # # or

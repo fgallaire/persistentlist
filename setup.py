@@ -29,7 +29,7 @@ CLASSIFIERS = [
 
 setup(
     name='persistentlist',
-    version='0.2',
+    version='0.3',
     license='GNU GPL v3',
     description='library providing a persistent list of n object',
     long_description='library providing a persistent list of n object, each n+1 object removing the first object in the list',
