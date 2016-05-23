@@ -1,4 +1,4 @@
-# Persistentlist
+# PersistentList
 
 Persistentlist is a simple persistent list carrying n objects, the last objects being appended
 at the end of the list.
