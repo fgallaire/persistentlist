@@ -16,6 +16,7 @@
 # Setup for persistentlist
 '''Setup for persistentlist'''
 
+# 3rd party libraries imports
 from setuptools import setup
 
 CLASSIFIERS = [
