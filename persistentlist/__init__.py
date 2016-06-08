@@ -14,15 +14,23 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 # standard libraries imports
+import errno
+import os
 import os.path
 import shelve
+import sys
 
 class PersistentList(object):
 
     def __init__(self, dbpath, maxitems):
         self.dblist = []
         self.maxitems = maxitems
-        if not os.path.exists('.'.join([dbpath, 'db'])):
+        extension = '.db'
+        # test the path
+        pathhead, pathtail = os.path.split(dbpath)
+        if not os.path.exists(pathhead):
+            raise OSError(errno.ENOENT, os.strerror(errno.ENOENT), pathhead)
+        if not os.path.exists('.'.join([dbpath, extension])):
             self.db = shelve.open(dbpath, writeback=True)
             self.db['itemlist'] = []
         else:
@@ -49,4 +57,3 @@ class PersistentList(object):
 
     def close(self):
         self.db.close()
-        
