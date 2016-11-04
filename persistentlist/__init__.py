@@ -24,24 +24,24 @@ class PersistentList(object):
         self.maxitems = maxitems
         if not os.path.exists('.'.join([dbpath, 'db'])):
             self.db = shelve.open(dbpath, writeback=True)
-            self.db['idlist'] = []
+            self.db['itemlist'] = []
         else:
             self.db = shelve.open(dbpath, writeback=True) 
 
     def __str__(self):
-        return self.db['idlist'].__repr__()
+        return self.db['itemlist'].__repr__()
 
     def __repr__(self):
-        return str(self.db['idlist'])
+        return str(self.db['itemlist'])
 
     def __iter__(self):
-        for elem in self.db['idlist']:
+        for elem in self.db['itemlist']:
             yield elem
 
-    def append(self, id):
-        if len(self.db['idlist']) == self.maxitems:
-            del self.db['idlist'][0]
-        self.db['idlist'].append(id)
+    def append(self, item):
+        if len(self.db['itemlist']) == self.maxitems:
+            del self.db['itemlist'][0]
+        self.db['itemlist'].append(item)
 
     def close(self):
         self.db.close()
