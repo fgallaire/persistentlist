@@ -43,6 +43,10 @@ class PersistentList(object):
             del self.db['itemlist'][0]
         self.db['itemlist'].append(item)
 
+    def extend(self, items):
+        for item in items:
+            self.append(item)
+
     def close(self):
         self.db.close()
         
