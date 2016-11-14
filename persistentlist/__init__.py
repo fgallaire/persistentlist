@@ -23,6 +23,8 @@ import sys
 class PersistentList(object):
 
     def __init__(self, dbpath, maxitems):
+        if not dbpath:
+            dbpath='cache'
         self.dblist = []
         self.maxitems = maxitems
         extension = '.db'
