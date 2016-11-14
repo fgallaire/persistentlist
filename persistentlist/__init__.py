@@ -38,7 +38,7 @@ class PersistentList(object):
         for elem in self.db['idlist']:
             yield elem
 
-    def add(self, id):
+    def append(self, id):
         if len(self.db['idlist']) == self.maxitems:
             del self.db['idlist'][0]
         self.db['idlist'].append(id)

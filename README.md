@@ -24,13 +24,13 @@ first object is removed from the list.
         >>> cache = PersistentList('cache', 3)
         >>> cache
         []
-        >>> cache.add(1)
+        >>> cache.append(1)
         [1]
-        >>> cache.add(2)
+        >>> cache.append(2)
         [1, 2]
-        >>> cache.add(3)
+        >>> cache.append(3)
         [1, 2, 3]
-        >>> cache.add(4)
+        >>> cache.append(4)
         [2, 3, 4]
         >>> mylist = cache
         >>> mylist
