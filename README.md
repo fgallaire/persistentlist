@@ -25,21 +25,29 @@ first object is removed from the list.
         >>> cache
         []
         >>> cache.append(1)
+        >>> cache
         [1]
         >>> cache.append(2)
+        >>> cache
         [1, 2]
         >>> cache.append(3)
+        >>> cache
         [1, 2, 3]
         >>> cache.append(4)
+        >>> cache
         [2, 3, 4]
+        >>> cache.extend([5, 6])
+        >>> cache
+        [4, 5, 6]
         >>> mylist = cache
         >>> mylist
-        [2, 3, 4]
+        [4, 5, 6]
         >>> cache.close()
 
 ### Authors
 
 Carl Chenet <chaica@ohmytux.com>
+Florent Gallaire <fgallaire@gmail.com>
 
 ### License
 
