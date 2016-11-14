@@ -28,7 +28,7 @@ class PersistentList(object):
         extension = '.db'
         # test the path
         pathhead, pathtail = os.path.split(dbpath)
-        if not os.path.exists(pathhead):
+        if os.path.isabs(dbpath) and not os.path.exists(pathhead):
             raise OSError(errno.ENOENT, os.strerror(errno.ENOENT), pathhead)
         if not os.path.exists('.'.join([dbpath, extension])):
             self.db = shelve.open(dbpath, writeback=True)
