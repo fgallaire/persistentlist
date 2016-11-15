@@ -12,20 +12,33 @@ Remember the goal of this object persistentlist is to store persistently N objec
 
     >>> cache
     []
-    >>> cache.add(1)
+
+You can use append()::
+
+    >>> cache.append(1)
+    >>> cache
     [1]
-    >>> cache.add(2)
+    >>> cache.append(2)
+    >>> cache
     [1, 2]
-    >>> cache.add(3)
+    >>> cache.append(3)
+    >>> cache
     [1, 2, 3]
-    >>> cache.add(4)
+    >>> cache.append(4)
+    >>> cache
     [2, 3, 4]
+
+And extend()::
+
+    >>> cache.extend([5, 6])
+    >>> cache
+    [4, 5, 6]
 
 Use your persistent list like a traditional list::
 
     >>> mylist = cache
     >>> mylist
-    [2, 3, 4]
+    [4, 5, 6]
 
 Once you are finished using the persistentlist object, do not forget to close it (requirement of the standard library module shelve underneath)::
 
