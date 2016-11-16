@@ -13,6 +13,27 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
+"""
+    The ``persistentlist`` module
+    =============================
+ 
+    The persistentlist module provides classes to use a PersistentList.
+ 
+    :Example:
+ 
+    >>> from persistentlist import PersistentList
+    >>> cache = PersistentList('cache', 3)
+    >>> cache.append(1)
+    [1]
+    >>> cache.append(2)
+    [1, 2]
+    >>> cache.append(3)
+    [1, 2, 3]
+    >>> cache.append(4)
+    [2, 3, 4]
+
+"""
+
 # standard libraries imports
 import errno
 import os
@@ -21,6 +42,26 @@ import shelve
 import sys
 
 class PersistentList(object):
+    '''
+        The PersistentList class. Instantiate a PersistentList object.
+
+        :param cachepath: The path to the cache file. If the empty string is provided, defaults to 'cache'
+        :type protocol: str
+        :param elementnb: The maximum elements of your PersistentList. Next ones are dropped.
+        :return: A PersistentList object
+        :rtype: PersistentList
+
+        :Example:
+ 
+        >>> from persistentlist import PersistentList
+        >>> cache = PersistentList('cache', 3)
+        >>> cache
+        []
+        >>> type(cache)
+        <class 'persistentlist.PersistentList'>
+
+    '''
+
 
     def __init__(self, dbpath, maxitems):
         if not dbpath:
@@ -49,13 +90,58 @@ class PersistentList(object):
             yield elem
 
     def append(self, item):
+        '''
+            Append a new element at the end of the PersistentList object.
+            When the max size of the PersistentList is reached, the first element is dropped
+
+            :param item: An item to append at the end of the PersistentList element.
+            :return: A PersistentList object
+            :rtype: Nothing
+
+            :Example:
+     
+            >>> from persistentlist import PersistentList
+            >>> cache = PersistentList('cache', 3)
+            >>> cache
+            []
+            >>> cache.append(1)
+            >>>
+
+        '''
         if len(self.db['itemlist']) == self.maxitems:
             del self.db['itemlist'][0]
         self.db['itemlist'].append(item)
 
     def extend(self, items):
+        '''
+            Extend a PersistentList object with a list of elements.
+            When the max size of the PersistentList is reached, the first element is dropped
+
+            :param items: List of items to append at the end of the PersistentList object.
+            :return: A PersistentList object
+
+            :Example:
+     
+            >>> from persistentlist import PersistentList
+            >>> cache = PersistentList('cache', 3)
+            >>> cache.extend([1,2,3])
+            >>> cache
+            [1,2,3]
+
+        '''
         for item in items:
             self.append(item)
 
     def close(self):
+        '''
+            Close a PersistentList object.
+
+            :Example:
+     
+            >>> from persistentlist import PersistentList
+            >>> cache = PersistentList('cache', 3)
+            >>> cache.close()
+            >>>
+
+        '''
         self.db.close()
