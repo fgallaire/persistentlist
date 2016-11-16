@@ -16,5 +16,5 @@ From sources
 
 * Next, to install persistentlist on your computer, type the following command with the root user::
 
-    $ python3.4 setup.py install
+    $ python3 setup.py install
 
