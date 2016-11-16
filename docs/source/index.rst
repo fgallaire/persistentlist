@@ -14,8 +14,8 @@ Guide
    :maxdepth: 2
 
    install
-   configure
    use
+   persistentlist
    license
    authors
 
