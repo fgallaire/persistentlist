@@ -51,7 +51,7 @@ class PersistentList(object):
 
         :param dbpath: The path to the cache file. If the empty string is provided, defaults to 'cache'
         :type protocol: str
-        :param elementnb: The maximum elements of your PersistentList. Next ones are dropped.
+        :param maxitems: The maximum number of elements i your PersistentList. Next ones are dropped.
         :return: A PersistentList object
         :rtype: PersistentList
 
