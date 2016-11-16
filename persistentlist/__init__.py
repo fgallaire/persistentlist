@@ -24,12 +24,16 @@
     >>> from persistentlist import PersistentList
     >>> cache = PersistentList('cache', 3)
     >>> cache.append(1)
+    >>> cache
     [1]
     >>> cache.append(2)
+    >>> cache
     [1, 2]
     >>> cache.append(3)
+    >>> cache
     [1, 2, 3]
     >>> cache.append(4)
+    >>> cache
     [2, 3, 4]
 
 """
@@ -45,7 +49,7 @@ class PersistentList(object):
     '''
         The PersistentList class. Instantiate a PersistentList object.
 
-        :param cachepath: The path to the cache file. If the empty string is provided, defaults to 'cache'
+        :param dbpath: The path to the cache file. If the empty string is provided, defaults to 'cache'
         :type protocol: str
         :param elementnb: The maximum elements of your PersistentList. Next ones are dropped.
         :return: A PersistentList object
@@ -95,8 +99,6 @@ class PersistentList(object):
             When the max size of the PersistentList is reached, the first element is dropped
 
             :param item: An item to append at the end of the PersistentList element.
-            :return: A PersistentList object
-            :rtype: Nothing
 
             :Example:
      
@@ -118,7 +120,6 @@ class PersistentList(object):
             When the max size of the PersistentList is reached, the first element is dropped
 
             :param items: List of items to append at the end of the PersistentList object.
-            :return: A PersistentList object
 
             :Example:
      
