@@ -14,9 +14,9 @@ first object is removed from the list.
 
 * Install persistentlist from sources
 
-        # tar zxvf persistentlist-0.3.tar.gz
+        # tar zxvf persistentlist-0.4.tar.gz
         # cd persistentlist
-        # python3.4 setup.py install
+        # python3 setup.py install
 
 ### How to use persistentlist
 
@@ -46,8 +46,8 @@ first object is removed from the list.
 
 ### Authors
 
-Carl Chenet <chaica@ohmytux.com>
-Florent Gallaire <fgallaire@gmail.com>
+- Carl Chenet <chaica@ohmytux.com>
+- Florent Gallaire fgallaire@gmail.com
 
 ### License
 
