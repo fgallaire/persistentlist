@@ -49,9 +49,9 @@ class PersistentList(object):
     '''
         The PersistentList class. Instantiate a PersistentList object.
 
-        :param dbpath: The path to the cache file. If the empty string is provided, defaults to 'cache'
+        :param dbpath: The path to the cache file. Defaults to 'cache'.
         :type protocol: str
-        :param maxitems: The maximum number of elements i your PersistentList. Next ones are dropped.
+        :param maxitems: The maximum number of elements in your PersistentList. Defaults to 0 for no maximum.
         :return: A PersistentList object
         :rtype: PersistentList
 
@@ -67,9 +67,7 @@ class PersistentList(object):
     '''
 
 
-    def __init__(self, dbpath, maxitems):
-        if not dbpath:
-            dbpath='cache'
+    def __init__(self, dbpath='cache', maxitems=0):
         self.dblist = []
         self.maxitems = maxitems
         extension = '.db'
@@ -110,7 +108,7 @@ class PersistentList(object):
             >>>
 
         '''
-        if len(self.db['itemlist']) == self.maxitems:
+        if self.maxitems and len(self.db['itemlist']) == self.maxitems:
             del self.db['itemlist'][0]
         self.db['itemlist'].append(item)
 
